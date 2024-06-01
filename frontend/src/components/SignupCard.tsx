@@ -1,13 +1,27 @@
 import { SignupInput } from "@aryanxvz/medium-common"
+import axios from "axios"
 import { ChangeEvent, useState } from "react"
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
+import { BACKEND_URL } from "../../config.ts"
 
 export const SignupCard = () => {
+    const navigate = useNavigate()
     const [inputs, setInputs] = useState<SignupInput>({
         name: "",
         username: "",
         password: ""
     })
+
+    async function sendRequest() {
+        try {
+            const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, inputs)
+            const jwt = response.data
+            localStorage.setItem("token", jwt)
+            navigate("/blogs")
+        } catch(e) {
+            alert("Error while igning up")
+        }
+    }
 
     return <div className="h-screen flex justify-center flex-col">
         <div className="flex justify-center">
@@ -24,7 +38,7 @@ export const SignupCard = () => {
                     <InputBox label="Username" placeholder="Enter your username" onChange={(e) => 
                         setInputs({
                             ...inputs,
-                            name: (e.target as HTMLInputElement).value
+                            username: (e.target as HTMLInputElement).value
                         })
                     } />
                      <InputBox label="Name" placeholder="Author name (Optional)" onChange={(e) => 
@@ -36,10 +50,10 @@ export const SignupCard = () => {
                     <InputBox label="Password" type="password" placeholder="Enter your password" onChange={(e) => 
                         setInputs({
                             ...inputs,
-                            name: (e.target as HTMLInputElement).value
+                            password: (e.target as HTMLInputElement).value
                         })
                     } />
-                    <button type="button" className="w-full mt-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Sign up</button>
+                    <button onClick={sendRequest} type="button" className="w-full mt-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Sign up</button>
                 </div>
             </div>
         </div>
