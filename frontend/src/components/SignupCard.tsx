@@ -15,7 +15,7 @@ export const SignupCard = () => {
     async function sendRequest() {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, inputs)
-            const jwt = response.data
+            const jwt = response.data.jwt
             localStorage.setItem("token", jwt)
             navigate("/blogs")
         } catch(e) {
