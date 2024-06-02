@@ -3,7 +3,7 @@ import { AppBar } from "../components/AppBar"
 import { BACKEND_URL } from "../../config"
 import { ChangeEvent, useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { getCurrentDate } from "../components/FullBlog"
+import { getCurrentDateISO } from "../components/FullBlog"
 
 export const Publish = () => {
     const [title, setTitle] = useState("")
@@ -22,21 +22,24 @@ export const Publish = () => {
         <TextEditor onChange={(e) => {
             setContent(e.target.value)
         }} />
+
         <div className="flex justify-end pr-32 pt-3">
+        
         <button onClick={ async () => {
-                    const publishDate = getCurrentDate();
-                    const response = await axios.post(`${BACKEND_URL}/api/v1/blog`, {
-                        title,
-                        content,
-                        publishedAt: publishDate
-                    }, {
-                        headers: {
-                            Authorization: localStorage.getItem("token")
-                        }
-                    });
-                    Navigate(`/blog/${response.data.id}`)
-            }} className="inline-flex items-center px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800">
-            Publish</button>
+            const publishDate = getCurrentDateISO();
+            const response = await axios.post(`${BACKEND_URL}/api/v1/blog`, {
+                title,
+                content,
+                publishedAt: publishDate
+            }, {
+                headers: {
+                    Authorization: localStorage.getItem("token")
+                }
+            });
+            Navigate(`/blog/${response.data.id}`);
+        }} className="inline-flex items-center px-5 py-3 text-sm font-medium text-center text-white bg-blue-700 rounded-lg focus:ring-4 focus:ring-blue-200 hover:bg-blue-800">
+            Publish
+        </button>
         </div>
     </div>
 }

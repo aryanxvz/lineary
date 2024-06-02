@@ -63,7 +63,7 @@ blogRouter.post('/', async (c) => {
 })
   
 
-//
+//not in use
 blogRouter.put('/', async (c) => {
     const body = await c.req.json()
     const { success } = updateBlogInput.safeParse(body)
@@ -99,6 +99,7 @@ blogRouter.get('/bulk', async (c) => {
             title: true,
             content: true,
             id: true,
+            publishedAt: true,
             author: {
                 select: {
                     name: true
@@ -127,6 +128,7 @@ blogRouter.get('/:id', async (c) => {
                 id: true,
                 title: true,
                 content: true,
+                publishedAt: true,
                 author: {
                     select: {
                         name: true

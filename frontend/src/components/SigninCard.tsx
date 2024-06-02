@@ -17,7 +17,7 @@ export const SigninCard = () => {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, inputs)
             const jwt = response.data.jwt
             localStorage.setItem("token", jwt)
-            navigate("/blogs")
+            navigate("/blog")
         } catch(e) {
             alert("Error while igning up")
         }

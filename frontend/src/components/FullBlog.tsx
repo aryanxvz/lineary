@@ -1,20 +1,11 @@
 import { Blog } from "../hooks"
 import { AppBar } from "./AppBar"
-import { Avatar } from "./BlogCard"
+import { Avatar } from "./BlogsCard"
 
-export const getCurrentDate = () => {
+export const getCurrentDateISO = () => {
     const now = new Date();
-    const year = now.getFullYear();
-    const monthNames = [
-        "January", "February", "March", "April", "May", "June",
-        "July", "August", "September", "October", "November", "December"
-    ];
-    const month = monthNames[now.getMonth()]; // Get the written month name
-    const day = String(now.getDate()).padStart(2, '0');
-
-    return `${day} ${month} ${year}`;
+    return now.toISOString();
 };
-
 
 export const FullBlog = ({ blog }: {blog : Blog}) => {
     return <div>
@@ -42,7 +33,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                     <div className="flex items-center">
                         <Avatar size="small" name={blog.author.name}/>
                         <div>
-                            <div className="text-2xl font-bold">
+                            <div className="text-xl font-bold pl-2">
                                 {blog.author.name || "Anonymous"}
                             </div>
                         </div>

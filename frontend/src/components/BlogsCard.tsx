@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom"
 
-interface BlogCardType {
+interface BlogsCardType {
     id: string
     authorName: string
     title: string
@@ -8,7 +8,7 @@ interface BlogCardType {
     publishedAt: string
 }
 
-export const BlogCard = ({ id, authorName, title, content, publishedAt } : BlogCardType) => {
+export const BlogsCard = ({ id, authorName, title, content, publishedAt } : BlogsCardType) => {
     return <Link to={`${id}`}>
         <div className="p-10 border-b border-slate-200 pb-4 cursor-pointer">
             <div className="flex">
