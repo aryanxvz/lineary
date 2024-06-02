@@ -6,9 +6,11 @@ export interface Blog {
     "id": string
     "title": string
     "content": string
+    "publishedAt" : string
     "author": {
         "name": string
     }
+    
 }
 
 export const useBlog = ({ id }: { id: string }) => {

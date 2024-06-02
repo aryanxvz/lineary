@@ -54,7 +54,8 @@ blogRouter.post('/', async (c) => {
         data: {
             title: body.title,
             content: body.content,
-            authorId: userId
+            authorId: userId,
+            publishedAt: new Date()
         }
     })
 

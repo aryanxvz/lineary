@@ -5,11 +5,11 @@ interface BlogCardType {
     authorName: string
     title: string
     content: string
-    publishedDate: string
+    publishedAt: string
 }
 
-export const BlogCard = ({ id, authorName, title, content, publishedDate } : BlogCardType) => {
-    return <Link to={`blog/${id}`}>
+export const BlogCard = ({ id, authorName, title, content, publishedAt } : BlogCardType) => {
+    return <Link to={`${id}`}>
         <div className="p-10 border-b border-slate-200 pb-4 cursor-pointer">
             <div className="flex">
                 <div className="flex justify-center flex-col">
@@ -17,7 +17,7 @@ export const BlogCard = ({ id, authorName, title, content, publishedDate } : Blo
                 </div>
                 <div className="font-light pl-2">{authorName}</div>
                 <div className="px-2">&#8226;</div>
-                <div className="font-extralight pl-1 text-slate-500">{publishedDate}</div>
+                <div className="font-extralight pl-1 text-slate-500">{publishedAt}</div>
             </div>
             <div className="text-2xl font-semibold pt-2">
                 {title}
