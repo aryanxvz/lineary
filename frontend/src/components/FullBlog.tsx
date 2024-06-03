@@ -1,6 +1,7 @@
+
 import { Blog } from "../hooks"
 import { AppBar } from "./AppBar"
-import { Avatar } from "./BlogsCard"
+import { Avatar } from "./AppBar"
 
 export const getCurrentDateISO = () => {
     const now = new Date();
@@ -16,7 +17,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                     {blog.title}
                 </div>
                 <div className="font-extralight py-2 text-slate-500">
-                    {blog.publishedAt}
+                    {new Date(blog.publishedAt).toDateString().slice(4)}
                 </div>
                 <div className="py-4">
                     <p className="whitespace-pre-wrap">
@@ -31,7 +32,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                         Author
                     </div>
                     <div className="flex items-center">
-                        <Avatar size="small" name={blog.author.name}/>
+                        <Avatar size="small" name={blog.author.name || "Anonymous"}/>
                         <div>
                             <div className="text-xl font-bold pl-2">
                                 {blog.author.name || "Anonymous"}
@@ -39,7 +40,6 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
     </div>

@@ -2,6 +2,17 @@ import { useParams } from "react-router-dom"
 import { FullBlog } from "../components/FullBlog"
 import { useBlog } from "../hooks"
 
+export const mainBlog = {
+    id: "",
+    title: "",
+    content: "",
+    publishedAt: "",
+    author: {
+        name: ""
+
+    }
+};
+
 export const Blog = () => {
     const { id } = useParams()
     const {loading, blog} = useBlog({
@@ -19,6 +30,6 @@ export const Blog = () => {
     }
     
     return <div>
-        <FullBlog blog={blog}/>
+            <FullBlog blog={blog} />
     </div>
 }

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom"
+import { Avatar } from "./AppBar"
 
-interface BlogsCardType {
+export interface BlogsCardType {
     id: string
     authorName: string
     title: string
@@ -17,7 +18,7 @@ export const BlogsCard = ({ id, authorName, title, content, publishedAt } : Blog
                 </div>
                 <div className="font-light pl-2">{authorName}</div>
                 <div className="px-2">&#8226;</div>
-                <div className="font-extralight pl-1 text-slate-500">{publishedAt}</div>
+                <div className="font-extralight pl-1 text-slate-500">{new Date(publishedAt).toDateString().slice(4)}</div>
             </div>
             <div className="text-2xl font-semibold pt-2">
                 {title}
@@ -32,8 +33,3 @@ export const BlogsCard = ({ id, authorName, title, content, publishedAt } : Blog
     </Link>
 }
 
-export function Avatar({ name, size = "small" }:{name : string, size? : "small" | "big" }) {
-    return <div className={`mr-1 relative inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
-        <span className={`${size === "small" ? "text-xs" : "text-md"} text-xs text-gray-600 dark:text-gray-300`}> {name[0]} </span>
-    </div>
-}

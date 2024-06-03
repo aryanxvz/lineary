@@ -9,7 +9,7 @@ export const Blogs = () => {
             Loading...
         </div>
     }
-//
+
     return <div>
         <AppBar />
         <div className="flex justify-center">
