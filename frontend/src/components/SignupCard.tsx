@@ -37,16 +37,16 @@ export const SignupCard = () => {
                     </div>
                 </div>
                 <div>
+                    <InputBox label="Name" placeholder="Author name" onChange={(e) => 
+                        setInputs({
+                            ...inputs,
+                            name: (e.target as HTMLInputElement).value
+                        })
+                    } />
                     <InputBox label="Username" placeholder="Enter your username" onChange={(e) => 
                         setInputs({
                             ...inputs,
                             username: (e.target as HTMLInputElement).value
-                        })
-                    } />
-                     <InputBox label="Name" placeholder="Author name (Optional)" onChange={(e) => 
-                        setInputs({
-                            ...inputs,
-                            name: (e.target as HTMLInputElement).value
                         })
                     } />
                     <InputBox label="Password" type="password" placeholder="Enter your password" onChange={(e) => 

@@ -2,25 +2,28 @@ import z from 'zod';
 export declare const signupInput: z.ZodObject<{
     username: z.ZodString;
     password: z.ZodString;
-    name: z.ZodOptional<z.ZodString>;
+    name: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     username: string;
     password: string;
-    name?: string | undefined;
+    name: string;
 }, {
     username: string;
     password: string;
-    name?: string | undefined;
+    name: string;
 }>;
 export declare const signinInput: z.ZodObject<{
     username: z.ZodString;
     password: z.ZodString;
+    name: z.ZodString;
 }, "strip", z.ZodTypeAny, {
     username: string;
     password: string;
+    name: string;
 }, {
     username: string;
     password: string;
+    name: string;
 }>;
 export declare const createBlogInput: z.ZodObject<{
     title: z.ZodString;

@@ -8,6 +8,7 @@ import axios from "axios"
 export const SigninCard = () => {
     const navigate = useNavigate()
     const [inputs, setInputs] = useState<SigninInput>({
+        name: "",
         username: "",
         password: ""
     })
@@ -15,11 +16,13 @@ export const SigninCard = () => {
     async function sendRequest() {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/signin`, inputs)
+            const storeName = response.data.name
             const jwt = response.data.jwt
             localStorage.setItem("token", jwt)
+            localStorage.setItem("authorName", storeName)
             navigate("/blog")
         } catch(e) {
-            alert("Error while igning up")
+            alert("Error while signing in")
         }
     }
 
@@ -35,6 +38,12 @@ export const SigninCard = () => {
                     </div>
                 </div>
                 <div>
+                    <InputBox label="Name" placeholder="Author name" onChange={(e) => 
+                        setInputs({
+                            ...inputs,
+                            name: (e.target as HTMLInputElement).value
+                        })
+                    } />
                     <InputBox label="Username" placeholder="Enter your username" onChange={(e) => 
                         setInputs({
                             ...inputs,
