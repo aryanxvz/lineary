@@ -17,12 +17,12 @@ export const Account = () => {
 
     return <div>
         <section className="h-screen flex justify-center flex-col bg-gray-100">
-            <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md pt-10 pb-10">
+            <div className="flex flex-col items-center justify-center px-10 py-8 mx-auto md:h-screen md:py-0">
+                <div className="w-full bg-white rounded-md shadow pr-6 pl-6 pt-10 pb-10">
                     <div className="flex justify-center p-6 space-y-4 md:space-y-6 sm:p-8">
                         <div className="flex items-center">
                             <Avatar size={"big"} name={localStorage.getItem("authorName") || "Anonymous"} />
-                            <div className="text-3xl lg:text-5xl font-bold pl-4">
+                            <div className="text-4xl md:text-5xl font-bold pl-4">
                                 {localStorage.getItem("authorName") || "Anonymous"}
                             </div>
                         </div>
@@ -30,7 +30,7 @@ export const Account = () => {
                     
                     <div className="flex justify-center">
                         <div className="">
-                            <div className="text-lg pt-4">
+                            <div className="text-md pt-4">
                                 Are you sure you want to Logout?
                             </div>
                             <div className="">
