@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom"
 
 export const AppBar = () => {
     return <div className="flex justify-between border-b px-24 py-4">
@@ -15,7 +15,12 @@ export const AppBar = () => {
 }
 
 export function Avatar({ name, size = "small" }:{name : string, size? : "small" | "big" }) {
-    return <div className={`relative inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
+    const navigate = useNavigate()
+    const handleClick = () => {
+        navigate("/account")
+    }
+
+    return <div onClick={handleClick} className={`relative cursor-pointer inline-flex items-center justify-center overflow-hidden bg-gray-100 rounded-full dark:bg-gray-600 ${size === "small" ? "w-6 h-6" : "w-10 h-10"}`}>
         <span className={`${size === "small" ? "text-xs" : "text-md"} text-xs text-gray-600 dark:text-gray-300`}> {name[0]} </span>
     </div>
 }
