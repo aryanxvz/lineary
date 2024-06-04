@@ -1,4 +1,4 @@
-import { SigninInput } from "@aryanxvz/medium-common"
+import { SigninInput } from "@aryanxvz/medium-common1"
 import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import { InputBox } from "../components/SignupCard"
