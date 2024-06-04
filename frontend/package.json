@@ -10,6 +10,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@ant-design/icons": "^5.3.7",
     "@aryanxvz/medium-common1": "^1.0.0",
     "axios": "^1.7.2",
     "react": "^18.2.0",

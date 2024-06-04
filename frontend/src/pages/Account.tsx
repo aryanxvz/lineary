@@ -16,13 +16,13 @@ export const Account = () => {
     }, [navigate]);
 
     return <div>
-        <section className="bg-gray-50">
+        <section className="h-screen flex justify-center flex-col bg-gray-100">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
-                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md pt-20 pb-20">
+                <div className="w-full bg-white rounded-lg shadow md:mt-0 sm:max-w-md pt-10 pb-10">
                     <div className="flex justify-center p-6 space-y-4 md:space-y-6 sm:p-8">
                         <div className="flex items-center">
                             <Avatar size={"big"} name={localStorage.getItem("authorName") || "Anonymous"} />
-                            <div className="text-5xl font-bold pl-4">
+                            <div className="text-3xl lg:text-5xl font-bold pl-4">
                                 {localStorage.getItem("authorName") || "Anonymous"}
                             </div>
                         </div>
