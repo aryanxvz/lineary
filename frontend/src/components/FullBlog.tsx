@@ -11,7 +11,7 @@ export const getCurrentDateISO = () => {
 export const FullBlog = ({ blog }: {blog : Blog}) => {
     return <div>
         <AppBar />
-        <div className="grid grid-cols-10 w-full px-24 pt-10">
+        <div className="grid grid-cols-10 w-full px-10 md:px-24 pt-10">
             <div className="col-span-10 md:col-span-8 pl-2">
                 <div className="text-4xl font-extrabold">
                     {blog.title}
@@ -26,7 +26,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                 </div>
             </div>
 
-            <div className="col-span-0 md:col-span-2 pl-28 pt-6">
+            <div className="col-span-0 content-start md:col-span-2 pl-2 md:pl-24 pt-6">
                 <div className="text-base font-medium">
                     <div className="text-slate-500 px-1">
                         Author
@@ -34,13 +34,14 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                     <div className="flex items-center">
                         <Avatar size="small" name={blog.author.name || "Anonymous"}/>
                         <div>
-                            <div className="text-xl font-bold pl-2">
+                            <div className="w-32 text-xl font-bold pl-1 md:pl-2 mb-8 md:mb-0">
                                 {blog.author.name || "Anonymous"}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 }
