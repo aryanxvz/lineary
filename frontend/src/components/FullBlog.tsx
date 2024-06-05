@@ -12,7 +12,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
     return <div>
         <AppBar />
         <div className="grid grid-cols-10 w-full px-24 pt-10">
-            <div className="col-span-8 pl-2">
+            <div className="col-span-10 md:col-span-8 pl-2">
                 <div className="text-4xl font-extrabold">
                     {blog.title}
                 </div>
@@ -26,7 +26,7 @@ export const FullBlog = ({ blog }: {blog : Blog}) => {
                 </div>
             </div>
 
-            <div className="pl-28 pt-6 col-span-2">
+            <div className="col-span-0 md:col-span-2 pl-28 pt-6">
                 <div className="text-base font-medium">
                     <div className="text-slate-500 px-1">
                         Author
