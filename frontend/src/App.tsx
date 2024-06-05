@@ -5,6 +5,7 @@ import { Blogs } from './pages/Blogs'
 import { Blog } from './pages/Blog'
 import { Publish } from './pages/Publish'
 import { Account } from './pages/Account'
+import ProtectedRoute from './components/ProtectedRoute'
 
 function App() {
 
@@ -15,10 +16,10 @@ function App() {
           <Route path='/' element={<Navigate to="/signup" replace />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/signin" element={<Signin />} />
-          <Route path="/blog" element={<Blogs />} />
-          <Route path="/blog/:id" element={<Blog />} />
-          <Route path="/publish" element={<Publish />} />
-          <Route path="/account" element={<Account />} />
+          <Route path="/blog" element={<ProtectedRoute><Blogs /></ProtectedRoute>} />
+          <Route path="/blog/:id" element={<ProtectedRoute><Blog /></ProtectedRoute>} />
+          <Route path="/publish" element={<ProtectedRoute><Publish /></ProtectedRoute>} />
+          <Route path="/account" element={<ProtectedRoute><Account /></ProtectedRoute>} />
         </Routes>
       </BrowserRouter>
     </>
