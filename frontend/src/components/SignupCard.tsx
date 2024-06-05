@@ -13,7 +13,11 @@ export const SignupCard = () => {
         password: ""
     })
 
+    const [loading, setLoading] = useState(false)
+
     async function sendRequest() {
+        setLoading(true)
+
         try {
             const response = await axios.post(`${BACKEND_URL}/api/v1/user/signup`, inputs)
             const storeName = response.data.name
@@ -23,6 +27,8 @@ export const SignupCard = () => {
             navigate("/blog")
         } catch(e) {
             alert("Error while igning up")
+        } finally {
+            setLoading(false)
         }
     }
 
@@ -56,7 +62,8 @@ export const SignupCard = () => {
                             password: (e.target as HTMLInputElement).value
                         })
                     }/>
-                    <button onClick={sendRequest} type="button" className="w-full mt-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Sign up</button>
+                    <button onClick={sendRequest} type="button" disabled={loading} className="w-full mt-4 text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">
+                    {loading ? "Signing up" :"Sign up"}</button>
                 </div>
             </div>
         </div>
