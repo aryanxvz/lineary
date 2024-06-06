@@ -7,7 +7,7 @@ interface ProtectedRouteProps {
 }
 
 const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
-  const token = localStorage.getItem('jwt') // Adjust this based on how you store the token
+  const token = localStorage.getItem("token") // Adjust this based on how you store the token
 
   if (!token) {
     return <Navigate to="/signup" replace />
