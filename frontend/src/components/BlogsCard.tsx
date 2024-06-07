@@ -27,7 +27,7 @@ export const BlogsCard = ({ id, authorName, title, content, publishedAt } : Blog
                 {content.slice(0, 300) + "..."}
             </div>
             <div className="text-slate-500 text-sm font-thin pt-4">
-                {`${Math.ceil(content.length / 100)} min(s) read`}
+                {`${Math.ceil(content.length / 250)} min(s) read`}
             </div>
         </div>
     </Link>
