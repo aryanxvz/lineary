@@ -1,7 +1,7 @@
 # Lineary
 
 A full-stack blogging webapp similar to Medium built using modern web technologies.    
-App live on: https://medium-eta-nine.vercel.app
+App live on: https://lineary.vercel.app/
 
 ## Stack
 
