@@ -1,6 +1,6 @@
-# Medium Clone
+# Lineary
 
-A full-stack Medium clone built using modern web technologies.    
+A full-stack blogging webapp similar to Medium built using modern web technologies.    
 App live on: https://medium-eta-nine.vercel.app
 
 ## Stack
@@ -23,8 +23,8 @@ App live on: https://medium-eta-nine.vercel.app
 -  **Clone the repository:**
 
     ```sh
-    git clone https://github.com/aryanxvz/medium.git
-    cd medium
+    git clone https://github.com/aryanxvz/lineary.git
+    cd lineary
     ```
 
 ## Project Structure

@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom"
 export const AppBar = () => {
     return <div className="flex justify-between border-b px-4 md:px-24 py-4">
         <Link to={'/blog'} className="flex flex-col justify-center">
-            <div className="cursor-pointer items-center font-extrabold text-3xl pl-4">Medium</div>
+            <div className="cursor-pointer items-center font-extrabold text-3xl pl-4">Lineary</div>
         </Link>
         <div>
             <Link to={"/publish"}> 
